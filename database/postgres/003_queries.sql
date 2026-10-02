@@ -10,9 +10,7 @@ order by t.scheduled_departure_utc
 limit 20;
 
 -- Query 2: ordered route stops
--- TODO: join route_stops to stops and order by stop_sequence.
 
--- Ordered stops for one route
 select
     rs.stop_sequence,
     s.id as stop_id,
@@ -23,9 +21,7 @@ where rs.route_id = :route_id
 order by rs.stop_sequence;
 
 -- Query 3: routes and trip count, including routes with zero trips
--- TODO: preserve routes with no matching trips for the supplied service date.
 
--- All routes, including routes with zero trips on the selected date
 select
     r.id,
     r.short_name,
